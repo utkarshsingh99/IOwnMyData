@@ -15,6 +15,9 @@ def get_posts(username, last_id=None):
     user = reddit.redditor(username)
 
     for post in yoptgyo.submissions.new(limit=5):
+
+        # userid: [{},{}]
+
         data.append(
             {
                 'title':post.title.encode('utf-8'),
@@ -23,7 +26,16 @@ def get_posts(username, last_id=None):
                 'url': f'https://reddit.com{post.permalink}',
                 'timestamp': post.created_utc,
                 'social':'reddit',
-                'ups':post.ups
+                'ups':post.ups,
+                'socialid': post.id
              }
             )
+        if post.id==last_id:
+            break
     return data
+
+def get_new_posts(username):
+    last_id = db.find_last_id(username, social='reddit')
+    data = get_posts(username, last_id)
+
+    db.push_data(username, data, social='reddit')

@@ -10,8 +10,7 @@ def home():
 @app.route('/reddit')
 def reddit():
     username = request.args.get('username')
-    username = request.args.get('username')
-    return 'well, you own it'
+    
 
 if __name__=='__main__':
     app.run('localhost', port=1244, debug=True)
