@@ -1,16 +1,16 @@
 import flask
 from flask import request
-from mongoengine import connect
+from mongoengine import *
 
 app = flask.Flask(__name__)
-connect('mongodb+srv://admin:u7wWXx7KTONHiY5w@users.v9vdh.mongodb.net/users?retryWrites=true&w=majority')
+connect('users', host='mongodb+srv://admin:u7wWXx7KTONHiY5w@users.v9vdh.mongodb.net/users?retryWrites=true&w=majority')
 
 # Please restructure these into different files
 class User(Document):
     email = StringField(required=True)
     first_name = StringField(max_length=50)
     last_name = StringField(max_length=50)
-    
+
 
 @app.route('/')
 def home():

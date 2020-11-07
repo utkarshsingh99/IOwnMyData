@@ -1,5 +1,4 @@
 import tweepy #https://github.com/tweepy/tweepy
-import csv
 import os
 #Twitter API credentials
 # consumer_key = os.environ.get('consumer_key')
