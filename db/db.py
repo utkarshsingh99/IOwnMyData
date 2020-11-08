@@ -62,12 +62,12 @@ class Social:
             'ups': self.ups
         }
 
-# Please restructure these into different files
-class User(Document):
-    email = StringField(required=True)
-    username = StringField(required=False)
-    first_name = StringField(max_length=50)
-    last_name = StringField(max_length=50)
+# # Please restructure these into different files
+# class User(Document):
+#     email = StringField(required=True)
+#     username = StringField(required=False)
+#     first_name = StringField(max_length=50)
+#     last_name = StringField(max_length=50)
 
 def find_last_id(username, social):
     all_data = get_data(username, social)
