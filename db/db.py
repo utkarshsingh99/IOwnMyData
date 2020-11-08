@@ -15,6 +15,7 @@ class User:
         self.username = email
         self.reddit = reddit
         self.twitter = twitter
+        self.data = []
     def to_dict(self):
         return {
             'name': self.name,
@@ -75,7 +76,10 @@ def find_last_id(username, social):
     return last_id
 
 def get_data(username, social):
-    data = user_db.find_one({'user_id':user_id, 'social':social})
+    data = user_db.find_one({'user_id':username, 'social':social})
 
 
 def push_data(username, data, social='reddit')
+
+def create_user(user: 'User object'):
+    data = user.to_dict()
