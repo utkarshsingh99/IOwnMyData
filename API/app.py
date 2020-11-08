@@ -1,9 +1,7 @@
 import flask
 from flask import request
-from mongoengine import *
 
 app = flask.Flask(__name__)
-connect('users', host='mongodb+srv://admin:u7wWXx7KTONHiY5w@users.v9vdh.mongodb.net/users?retryWrites=true&w=majority')
 
 # Please restructure these into different files
 class User(Document):
