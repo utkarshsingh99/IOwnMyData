@@ -17,7 +17,7 @@ export default class MainPanel extends React.Component {
     }
   }
   async componentDidMount() {
-    const response = await axios.get('http://127.0.0.1:1244/allactivity?username=utkarshsingh369@gmail.com')
+    const response = await axios.get('https://owndataapi.yoptgyo.repl.co/allactivity?username=utkarshsingh369@gmail.com')
     this.setState({activity: response})
   }
 
@@ -37,7 +37,7 @@ export default class MainPanel extends React.Component {
       }
       return (<Card title={socialAcc.cardTitle} extra={<img src={socialAcc.avatar}/>}>
                     <CardHeader
-                      avatar={<img className="header-image" src={reddit}/>}
+                      avatar={<img className="header-image" src={socialAcc.avatar}/>}
                       title={socialAcc.title}
                       subheader={socialAcc.subheader}
                     />
