@@ -1,5 +1,6 @@
 import praw
 import os
+from db import db
 CLIENT_ID = os.environ.get('client')
 CLIENT_SECRET = os.environ.get('secret')
 
@@ -14,7 +15,7 @@ def get_posts(username, last_id=None):
     data = []
     user = reddit.redditor(username)
 
-    for post in yoptgyo.submissions.new(limit=5):
+    for post in user.submissions.new(limit=5):
 
         # userid: [{},{}]
 

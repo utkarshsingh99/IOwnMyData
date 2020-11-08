@@ -1,1 +1,4 @@
 praw
+mongoengine
+dnspython
+Flask

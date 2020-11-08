@@ -47,11 +47,14 @@ def get_all_tweets(screen_name):
     
     data = []
     for tweet in alltweets:
+        try:
+            media = tweet.entities['media'][0]['media_url']
+        except:
+            media = ''
         data.append({
             'title': '',
             'text': tweet.full_text,
-            # 'media': tweet.entities['media'][0]['media_url'],
-            'media': '',
+            'media': media,
             'url': tweet.source_url,
             'timestamp': tweet.id,
             'social': 'twitter',
@@ -61,7 +64,6 @@ def get_all_tweets(screen_name):
         })
     print(alltweets[0].entities['media'][0]['media_url'])
     return data
-    pass
 
 
 if __name__ == '__main__':
