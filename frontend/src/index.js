@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom'
 
 import './index.css';
-import { Auth } from './firebase';
 import AppLayout from './components/dashboard/AppLayout';
 
 import HomePage from './components/dashboard/pages/Home';
@@ -26,29 +25,29 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		Auth.observeAuthState(user => {
-			console.log(user);
-			if (user === undefined) {
-				// waiting for Auth result
-			} else if (user === null) {
-				// not authenticated, so auth now
-				setTimeout(Auth.authWithGoogle, 10000);
-			} else {
-				// logged in, so log out for demo puposes
-				setTimeout(Auth.signOut, 10000);
-			}
-		});
+		// Auth.observeAuthState(user => {
+		// 	console.log(user);
+		// 	if (user === undefined) {
+		// 		// waiting for Auth result
+		// 	} else if (user === null) {
+		// 		// not authenticated, so auth now
+		// 		setTimeout(Auth.authWithGoogle, 10000);
+		// 	} else {
+		// 		// logged in, so log out for demo puposes
+		// 		setTimeout(Auth.signOut, 10000);
+		// 	}
+		// });
 	}
 
-	isLoggedIn() {
-		return this.state.user != null;
-	}
+	// isLoggedIn() {
+	// 	return this.state.user != null;
+	// }
 
 	render() {
 		// For transitions see: https://reacttraining.com/react-router/web/example/animated-transitions
 		return (
 			<Router >
-				<div>
+				<div className="background">
 					<Route path="/login" component={LoginPage} />
 					<Route path="/register" component={RegisterPage} />
 
